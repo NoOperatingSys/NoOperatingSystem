@@ -3,12 +3,18 @@
 mov si, STR
 call printf
 
+powerush:
+	mov ah, 00h
+	int 16h
+	mov ah, 0x0e
+	int 0x10
+	jmp powerush
 
 jmp $
 
 %include "./printf.fuckmylife"
 
-STR: db 'Welcome to noOS 1.2.1-alpha'
+STR: db 'Welcome to noOS 1.2.1-alpha', 0
 
 times 510-($-$$) db 0
-dw 0xaa55 
+dw 0xaa55
