@@ -1,43 +1,27 @@
-mov ah, 0x0e ; tty mode
+[org 0x7c00]
 
-mov bp, 0x8000
-mov sp, bp
-
-push '^'
-push 'm'
-push 'a'
-push 'e'
-push 't'
-push ' '
-push 'S'
-push 'O'
-push 'o'
-push 'n'
-push ' '
-push 'm'
-push 'o'
-push 'r'
-push 'f'
-push ' '
-push 'o'
-push 'l'
-push 'l'
-push 'l'
-push 'e'
-push 'H'
-
-print:
-	pop bx
-	mov al, bl
-	cmp al, '^'
-	je exit
-	int 0x10
-	jmp print
-exit:
-	
+mov si, STR
+call printf
 
 
-loop:
-    jmp loop 
+jmp $
+
+printf:
+	pusha
+	str_loop:
+		mov al, [si]
+		cmp al, 0
+		jne print_char
+		popa
+		ret
+	print_char:
+		mov ah, 0x0e
+		int 0x10
+		add si, 1
+		jmp str_loop
+
+
+STR: db 'Welcome to noOS 1.2.1-alpha'
+
 times 510-($-$$) db 0
 dw 0xaa55 
