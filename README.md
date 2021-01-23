@@ -1,5 +1,5 @@
 # noOS
-A operating system made from scratch that teaches the user how computers were ment to be used.
+A operating system made from scratch that teaches the user how computers were meant to be used.
 
 # Installation
 idk how to install it but u have builds in the build directory
