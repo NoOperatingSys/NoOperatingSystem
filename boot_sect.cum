@@ -14,7 +14,7 @@ jmp $
 
 %include "./printf.fuckmylife"
 
-STR: db 'Welcome to noOS 1.2.1-alpha', 0
+STR: db 'Welcome to noOS 1.1.0-playground', 0
 
 times 510-($-$$) db 0
 dw 0xaa55
