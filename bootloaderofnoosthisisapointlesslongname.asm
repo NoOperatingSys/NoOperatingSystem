@@ -38,7 +38,12 @@ mov al, 'a'
 int 0x10
 mov al, 'm'
 int 0x10
-
+mov al, ' '
+int 0x10
+mov al,':'
+int 0x10
+mov al,'D'
+int 0x10
 
 
 
