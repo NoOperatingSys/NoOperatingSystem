@@ -7,4 +7,4 @@ printf:
 	popa
 	ret
 
-%include "./printchar.suck"
+%include "./printchar.coal"
