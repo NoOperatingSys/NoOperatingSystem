@@ -24,9 +24,13 @@ exit:
 		call printf
 		jmp exit
 
-prompt: db 10,13,'[Power shell but not the crappy one] >> ',0 ; 10, 0
+prompt: db 10, 13, '[Power shell but not the crappy one] >> ', 0 ; 10, 0
 
+<<<<<<< HEAD
 satan: db 10,13,'satan is here be scared',0
+=======
+satan: db 10, 13, 'satan is here be scared', 10, 0
+>>>>>>> b90ae50c6180c4de917ff8a26bb5cf3f040103b9
 
 %include "./printf.pog"
 

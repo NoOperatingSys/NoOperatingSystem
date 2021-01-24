@@ -29,4 +29,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           sudo apt-get install -y nasm
-          nasm -f bin ./bootloaderofnoosthisisapointlesslongname.asm -o bootloaderofnoosthisisapointlesslongname.bin
+          sh ./build.sh
