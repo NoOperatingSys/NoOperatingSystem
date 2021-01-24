@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/MoltenCoreDev/noOS/master/logo.png)
+
 # Installation
 You don't
 
