@@ -15,7 +15,7 @@ powerush:
 
 jmp $
 
-%include "./printf.fuckmylife"
+%include "./printf.speak"
 
 STR: db 'Welcome to noOS 1.1.0-playground', 0
 
