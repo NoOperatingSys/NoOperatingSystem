@@ -24,7 +24,7 @@ exit:
 		call printf
 		jmp exit
 
-prompt: db '[Power shell but not the crappy one] >> ', 10, 0
+prompt: db 10,13,'[Power shell but not the crappy one] >> ',0 ; 10, 0
 
 satan: db 'satan is here be scared', 10, 0
 
