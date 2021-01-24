@@ -30,11 +30,6 @@ endlessread:
 	mov ah, 0x0e
 	int 0x10
 	cmp al, '.'
-	mov sa,sb
-	mov sa,al
-	mov sb,sa
-	mov si,sb
-	call printf
 	je powerush
 	jmp endlessread
 
