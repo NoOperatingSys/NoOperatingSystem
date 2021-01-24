@@ -21,12 +21,31 @@ powerush:
 	je help
 	jmp powerush
 
+exit:
+		mov ah, 0
+		int 10h
+		mov si, satan
+		call printf
+		jmp exit
+ls:
+		mov si,lsout
+		call printf
+		jmp powerush
+help:
+		mov si,helpout
+		call printf
+		jmp powerush		
+
+
+helpout: db 10,13,"l - LS",10,13,"c - exit (sorta)",10,13
+lsout: db 10,13,"Empty",10,13
+
 prompt: db 10, 13, '[Power shell but not the crappy one] >> ', 0 ; 10, 0
 
 satan: db 10,13,'satan is here be scared',0
 
 %include "./printf.pog"
-%include "./comm.ands"
+
 STR: db 'Welcome to noOS 1.1.0-playground', 0
 
 times 510-($-$$) db 0
