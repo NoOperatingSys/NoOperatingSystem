@@ -7,15 +7,26 @@ mov al, 10
 int 0x10
 
 powerush:
+	mov si, prompt
+	call printf
 	mov ah, 00h
 	int 16h
 	mov ah, 0x0e
 	int 0x10
+	cmp al, 'c'
+	je exit
 	jmp powerush
 
-jmp $
+exit:
+		mov ah, 0
+		int 10h
+		mov si, satan
+		call printf
+		jmp exit
 
-powerushbool: db 0
+prompt: db '[Power shell but not the crappy one] >> ', 10, 0
+
+satan: db 'satan is here be scared', 10, 0
 
 %include "./printf.pog"
 
