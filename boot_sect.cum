@@ -19,7 +19,27 @@ powerushtwo:
 	; If newline draw the prompt again
 	cmp al, 13
 	je powerush
+	cmp al, 'c'
+	je exit
+	cmp al, 'l'
+	je ltyped
+	jmp powerushtwo
 
+ltyped:
+	mov ah, 00h
+	int 16h
+	mov ah, 0x0e
+	int 0x10
+	cmp al, 's'
+	je lscommand
+
+	jmp powerushtwo
+
+lscommand:
+	mov si, STR
+	call printf
+
+	jmp powerush
 
 
 exit:
