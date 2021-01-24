@@ -7,3 +7,5 @@
 94762492923748352 on discord wants 10^-69 % credit here
 
 579731384868798464 on discord wants 0 credit here it goes
+
+98133204636028928 more credit for him on discord he made the logo for us <3
