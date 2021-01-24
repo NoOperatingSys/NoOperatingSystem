@@ -46,7 +46,7 @@ cmd: DQ ''
 satan: db 10,13,'satan is here be scared',0
 
 %include "./printf.pog"
-
+%include "./comm.ands"
 STR: db 'Welcome to noOS 1.1.0-playground', 0
 
 times 510-($-$$) db 0
