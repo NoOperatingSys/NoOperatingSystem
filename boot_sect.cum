@@ -26,7 +26,7 @@ exit:
 
 prompt: db 10,13,'[Power shell but not the crappy one] >> ',0 ; 10, 0
 
-satan: db 'satan is here be scared', 10, 0
+satan: db 10,13'satan is here be scared',0
 
 %include "./printf.pog"
 
