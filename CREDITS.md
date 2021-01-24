@@ -3,3 +3,7 @@
 348918040248713217 on discord wants 0.01% credit here ya go
 
 98133204636028928 on dicord wants 3.21333125% credit here ya go
+
+94762492923748352 on discord wants 10^-69 % credit here
+
+579731384868798464 on discord wants 0 credit here it goes
