@@ -9,13 +9,18 @@ int 0x10
 powerush:
 	mov si, prompt
 	call printf
+	jmp powerushtwo
+
+powerushtwo:
 	mov ah, 00h
 	int 16h
 	mov ah, 0x0e
 	int 0x10
-	cmp al, 'c'
-	je exit
-	jmp powerush
+	; If newline draw the prompt again
+	cmp al, 13
+	je powerush
+
+
 
 exit:
 		mov ah, 0
@@ -24,7 +29,7 @@ exit:
 		call printf
 		jmp exit
 
-prompt: db 10, 13, '[Power shell but not the crappy one] >> ', 0 ; 10, 0
+prompt: db 10, 13, 'Powerush %', 0 ; 10, 0
 
 satan: db 10, 13, 'satan is here be scared', 10, 0
 
