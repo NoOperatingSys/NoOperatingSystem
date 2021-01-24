@@ -1,5 +1,7 @@
 ![](https://raw.githubusercontent.com/MoltenCoreDev/noOS/master/logo.png)
 ![CI](https://github.com/MoltenCoreDev/noOS/workflows/CI/badge.svg)
+
+
 # Installation
 Load thy build image on a flash drive of thyne using [Etcher](http://etcher.io). Then reboot thy computer, and keep pressing (spam) the boot menu key (google what it is for thy computer) until you see thy boot menu. Choose thy flash drive, and thy art done. **Disclaimer: This has not been tested and we have no idea what will happen. Please do tell if you know.**
 
@@ -33,4 +35,4 @@ just run ```sh ./build.sh```
 - Get QEMU (qemu-system-x86_64) from the [QEMU downloads page](https://www.qemu.org/download/), or with your package manager on Linux.
 - Run build/boot_sect.bin with QEMU (`qemu-system-x86_64 build/boot_sect.bin`), or however you wish to run it.
 
-*Made by an American person and a Polish person*
+*Made by an American person and a Polish person and the wonderful noOS community*
