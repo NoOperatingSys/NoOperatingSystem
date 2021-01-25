@@ -21,7 +21,6 @@ powerush:
 	je help
 	cmp al, 's'
 	je endlessread
-
 	jmp powerush
 
 endlessread:
@@ -29,17 +28,17 @@ endlessread:
 	int 16h
 	mov ah, 0x0e
 	int 0x10
-	cmp al, '.'
+	cmp ah, '.'
 	je powerush
 	jmp endlessread
 
-
 newline: db 10, 13
-prompt: db 10, 13, '[Power shell but not the crappy one] >> ', 0 ; 10, 0
-cmd: DQ ''
+prompt: db 10, 13, '[PowerShell]> ',0
+;prompt: db 10, 13, '[Power shell but not the crappy one] >> ', 0 ; 10, 0
+cmd: dq ''
 
-satan: db 10,13,'satan is here be scared',0
-
+satan: db 13,07,'satan is here be scared',0
+;%define u(x) __?utf16?__(x) ;unicode = u()
 %include "./printf.pog"
 %include "./comm.ands"
 STR: db 'Welcome to noOS 1.1.0-playground', 0
