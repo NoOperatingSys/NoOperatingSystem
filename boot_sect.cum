@@ -6,7 +6,7 @@ mov ah, 0x0e
 mov al, 10
 int 0x10
 
-powerush:
+drawprompt:
 	mov si, prompt
 	call printf
 	jmp powerushtwo
@@ -18,11 +18,15 @@ powerushtwo:
 	int 0x10
 	; If newline draw the prompt again
 	cmp al, 13
-	je powerush
+	je drawprompt
 	cmp al, 'c'
 	je exit
+	cmp al, 'h',
+	je help
+
 	cmp al, 'l'
 	je ltyped
+
 	jmp powerushtwo
 
 ltyped:
@@ -31,35 +35,38 @@ ltyped:
 	mov ah, 0x0e
 	int 0x10
 	cmp al, 's'
-	je lscommand
+	jmp ls
 
 	jmp powerushtwo
 
-lscommand:
-	mov si, STR
+help:
+	mov si, helpout
 	call printf
+	jmp drawprompt
 
-	jmp powerush
 
+jmp $
 
 exit:
-		mov ah, 0
-		int 10h
-		mov si, satan
-		call printf
-		jmp exit
+	jmp exit
 
-prompt: db 10, 13, 'Powerush %', 0 ; 10, 0
+ls:
+	mov si, lsout
+	call printf
+	jmp drawprompt
 
 newline: db 10, 13
-prompt: db 10, 13, '[PowerShell]> ',0
-;prompt: db 10, 13, '[Power shell but not the crappy one] >> ', 0 ; 10, 0
-cmd: dq ''
 
-satan: db 13,07,'satan is here be scared',0
+helpout: db 10,13,"ls - LS",10,13,"c - exit (sorta)",10,13
+
+prompt: db 10, 13, 'real mode kernel is here kek  %', 0
+
+lsout: db 10, 13, 'Empty', 10, 13
+
 ;%define u(x) __?utf16?__(x) ;unicode = u()
+
 %include "./printf.pog"
-%include "./comm.ands"
+
 STR: db 'Welcome to noOS 1.1.0-playground', 0
 
 times 510-($-$$) db 0
