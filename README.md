@@ -3,7 +3,7 @@
 
 
 # Installation
-Load thy build image on a flash drive of thyne using [Etcher](http://etcher.io). Then reboot thy computer, and keep pressing (spam) the boot menu key (google what it is for thy computer) until you see thy boot menu. Choose thy flash drive, and thy art done. **Disclaimer: This has not been tested and we have no idea what will happen. Please do tell if you know.**
+You don't.
 
 # Building
 just run ```sh ./build.sh```
