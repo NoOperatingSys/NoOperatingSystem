@@ -9,28 +9,47 @@ int 0x10
 powerush:
 	mov si, prompt
 	call printf
+	jmp powerushtwo
+
+powerushtwo:
 	mov ah, 00h
 	int 16h
 	mov ah, 0x0e
 	int 0x10
+	; If newline draw the prompt again
+	cmp al, 13
+	je powerush
 	cmp al, 'c'
 	je exit
 	cmp al, 'l'
-	je ls
-	cmp al, 'h'
-	je help
-	cmp al, 's'
-	je endlessread
-	jmp powerush
+	je ltyped
+	jmp powerushtwo
 
-endlessread:
+ltyped:
 	mov ah, 00h
 	int 16h
 	mov ah, 0x0e
 	int 0x10
-	cmp ah, '.'
-	je powerush
-	jmp endlessread
+	cmp al, 's'
+	je lscommand
+
+	jmp powerushtwo
+
+lscommand:
+	mov si, STR
+	call printf
+
+	jmp powerush
+
+
+exit:
+		mov ah, 0
+		int 10h
+		mov si, satan
+		call printf
+		jmp exit
+
+prompt: db 10, 13, 'Powerush %', 0 ; 10, 0
 
 newline: db 10, 13
 prompt: db 10, 13, '[PowerShell]> ',0
