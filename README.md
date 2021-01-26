@@ -11,4 +11,4 @@ just run ```sh ./build.sh```
 # Running
 Just go see the wiki too much text here.
 
-*Made by an American person and a Polish person and the wonderful noOS community*
+*Made by the N operating system team*
