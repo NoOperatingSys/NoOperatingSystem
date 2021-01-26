@@ -28,17 +28,31 @@ endlessread:
 	int 16h
 	mov ah, 0x0e
 	int 0x10
-	cmp ah, '.'
-	je powerush
+	cmp al, '.'
+	je endread
+	inc bx
+	mov [cmd + bx], ah
 	jmp endlessread
+
+endread:
+	mov si,newline
+	call printf
+	mov si,cmd
+	call printf
+	mov si,newline
+	call printf
+	xor bx,bx
+	jmp powerush
 
 newline: db 10, 13
 prompt: db 10, 13, '[PowerShell]> ',0
-;prompt: db 10, 13, '[Power shell but not the crappy one] >> ', 0 ; 10, 0
-cmd: dq ''
-
+cmdro: db 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0
+;countro: dd 0
+cmd: db 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0
+;count: bp 0
+xor bx, bx
 satan: db 13,07,'satan is here be scared',0
-;%define u(x) __?utf16?__(x) ;unicode = u()
+
 %include "./printf.pog"
 %include "./comm.ands"
 STR: db 'Welcome to noOS 1.1.0-playground', 0
