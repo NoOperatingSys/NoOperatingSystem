@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/MoltenCoreDev/noOS/master/assets/logo.png)
+![](https://raw.githubusercontent.com/NOperatingSystem/Assets/master/Pictures/logo.png)
 ![CI](https://github.com/MoltenCoreDev/noOS/workflows/CI/badge.svg)
 
 
@@ -6,9 +6,9 @@
 You don't.
 
 # Building
-just run ```sh ./build.sh```
+just run `sh ./build.sh`
 
 # Running
 Just go see the wiki too much text here.
 
-*Made by the N operating system team*
+*Made by the N Operating System team*
