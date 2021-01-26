@@ -1,6 +1,6 @@
 [org 0x7c00]
-SECTION .bss
-cmd: resb 32
+;SECTION .bss
+;cmd: resb 32
 
 SECTION .text
 mov si, STR
@@ -36,9 +36,6 @@ endlessread:
 	je endread
 
 	inc bx
-;	cmp bx, 15
-;	je endread
-
 	mov [cmd + bx], al
 	jmp endlessread
 
@@ -52,7 +49,7 @@ endread:
 
 newline: db 10, 13
 prompt: db 10, 13, '[PowerShell]> ',0
-;cmd: db "","","","","","","","","","","","","","","" ;breh moment
+cmd: db 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff ;breh moment
 xor bx, bx
 
 %include "./printf.pog"
