@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/MoltenCoreDev/noOS/master/logo.png)
+![](https://raw.githubusercontent.com/MoltenCoreDev/noOS/master/assets/logo.png)
 ![CI](https://github.com/MoltenCoreDev/noOS/workflows/CI/badge.svg)
 
 
