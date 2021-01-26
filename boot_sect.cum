@@ -1,5 +1,8 @@
 [org 0x7c00]
+SECTION .bss
+cmd: resb 32
 
+SECTION .text
 mov si, STR
 call printf
 mov ah, 0x0e
@@ -28,10 +31,15 @@ endlessread:
 	int 16h
 	mov ah, 0x0e
 	int 0x10
+
 	cmp al, '.'
 	je endread
+
 	inc bx
-	mov [cmd + bx], ah
+;	cmp bx, 15
+;	je endread
+
+	mov [cmd + bx], al
 	jmp endlessread
 
 endread:
@@ -39,19 +47,13 @@ endread:
 	call printf
 	mov si,cmd
 	call printf
-	mov si,newline
-	call printf
 	xor bx,bx
 	jmp powerush
 
 newline: db 10, 13
 prompt: db 10, 13, '[PowerShell]> ',0
-cmdro: db 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0
-;countro: dd 0
-cmd: db 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0
-;count: bp 0
+;cmd: db "","","","","","","","","","","","","","","" ;breh moment
 xor bx, bx
-satan: db 13,07,'satan is here be scared',0
 
 %include "./printf.pog"
 %include "./comm.ands"
