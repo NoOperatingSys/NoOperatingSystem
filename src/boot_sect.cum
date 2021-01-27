@@ -48,7 +48,7 @@ endread:
 	jmp powerush
 
 newline: db 10, 13
-prompt: db 10, 13, '[PowerShell]> ',0
+prompt: db 10, 13, '[ SHELL ]=>  ',0
 cmd: db 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff ;breh moment
 xor bx, bx
 
