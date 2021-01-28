@@ -8,6 +8,7 @@ call printf
 mov ah, 0x0e
 mov al, 10
 int 0x10
+call initdrip
 
 powerush:
 	mov si, prompt
@@ -24,6 +25,8 @@ powerush:
 	je help
 	cmp al, 's'
 	je endlessread
+	cmp al, 'm'
+	je manualcommand
 	jmp powerush
 
 endlessread:
@@ -47,12 +50,16 @@ endread:
 	xor bx,bx
 	jmp powerush
 
+
+jmp $ ; hang the program if it tries to execute functions that it isn't supposed to
+
 newline: db 10, 13
 prompt: db 10, 13, '[PowerShell]> ',0
 cmd: db 0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff ;breh moment
 xor bx, bx
 
-%include "./printf.pog"
+%include "./Dripman/main.cum"
+
 %include "./comm.ands"
 STR: db 'Welcome to noOS 1.1.0-playground', 0
 
