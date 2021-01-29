@@ -1,5 +1,6 @@
+; Warning: These will be the most descriptive comments you've ever seen
 [org 0x7c00]
-	mov bp, 0x9000 ; whatever that means
+	mov bp, 0x9000 ; set the stack
 	mov sp, bp
 	mov bx, MSG_REAL
 	call print
@@ -12,7 +13,7 @@
 %include "src/asm/switch.32.asm"
 
 [bits 32]
-BEGIN_PM:
+BEGIN_PM: ; runs after switch
 	mov ebx, MSG_32
 	call print_str_pm
 	jmp $
