@@ -1,11 +1,12 @@
 [bits 16]
 pm:
     cli ; disable interrupts
-    lgdt [gdt_desc] ; load the gtd descriptor
+    lgdt [gdt_descriptor] ; load the gtd descriptor
     mov eax, cr0
     or eax, 0x1 ;set 32-bit mode in cr0
     mov cr0, eax
     jmp CODE_SEG:init_pm ;far jump by using a different segment
+
 
 
 [bits 32]
