@@ -26,25 +26,6 @@ powerush:
 	je endlessread
 	jmp powerush
 
-endlessread:
-	mov ah, 00h
-	int 16h
-	mov ah, 0x0e
-	int 0x10
-
-	cmp bx,4
-	je endread
-	mov [cmd + bx], al
-	inc bx
-	jmp endlessread
-
-endread:
-	xor bx,bx
-	cmp dword [cmd],'help'
-	je help
-	cmp dword [cmd],'exit'
-	je exit
-	jmp powerush
 
 newline: db 10, 13
 prompt: db 10, 13, '[PowerShell]> ',0
