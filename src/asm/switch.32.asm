@@ -7,6 +7,7 @@ pm:
     mov cr0, eax
     jmp CODE_SEG:init_pm
 
+
 [bits 32]
 init_pm: ; 32-bit lol
     mov ax, DATA_SEG 
@@ -16,7 +17,8 @@ init_pm: ; 32-bit lol
     mov fs, ax
     mov gs, ax
 
-    mov ebp, 0x90000 
-    mov esp, ebp
+    ;mov ebp, 0x90000 
+    mov esp, 0x90000 
+    ;mov esp, ebp
 
     call BEGIN_PM

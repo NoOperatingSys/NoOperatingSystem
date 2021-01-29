@@ -14,6 +14,7 @@ start:
 
 done:
     popa ; do the
+    call print_nl
     ret ; return
 
 print_nl:
