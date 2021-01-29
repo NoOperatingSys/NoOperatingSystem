@@ -18,8 +18,8 @@ BEGIN_PM:
 	jmp $
 
 
-MSG_REAL db "[noOS] Started in 16 bits, Loading... ", 0
-MSG_32 db "[noOS] 32 bit protected mode loaded.", 0
+MSG_REAL: db "[noOS] Started in 16 bits, Loading... ", 0
+MSG_32: db "[noOS] 32 bit protected mode loaded.", 0
 ; BootSector
 times 510-($-$$) db 0
 dw 0xaa55
