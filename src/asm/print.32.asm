@@ -10,11 +10,14 @@ print_str_pm:
 print_str_pm_loop:
     mov al, [ebx]
     mov ah, WOB
+
     cmp al, 0
     je print_str_pm_finish
+
     mov [edx], ax
     add ebx, 1
     add edx, 2
+    
     jmp print_str_pm_loop
 
 print_str_pm_finish:

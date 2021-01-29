@@ -25,4 +25,4 @@ print_nl:
     mov al, 0x0d ; \n^2
     int 0x10
     popa ; do the
-    ret; ret 
+    ret ; ret 

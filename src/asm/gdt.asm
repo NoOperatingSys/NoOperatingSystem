@@ -21,7 +21,8 @@ gdt_data:
 
 gdt_end:
 
-gdt_desc:
+; comment for good luck
+gdt_descriptor:
     dw gdt_end - gdt_start - 1 
     dd gdt_start 
 

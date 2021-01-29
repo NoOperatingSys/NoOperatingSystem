@@ -7,19 +7,19 @@
 	jmp $ ; unused thing that never gets called but if its not there thats a bug
 
 %include "src/asm/print.asm"
-%include "src/asm/print.32.asm"
 %include "src/asm/gdt.asm"
+%include "src/asm/print.32.asm"
 %include "src/asm/switch.32.asm"
 
 [bits 32]
 BEGIN_PM:
-	mov ebx, MSG_32
+	mov ebx, MSG_PROT
 	call print_str_pm
 	jmp $
 
 
-MSG_REAL: db "[noOS] Started in 16 bits, Loading... ", 0
-MSG_32: db "[noOS] 32 bit protected mode loaded.", 0
+MSG_REAL: db "[noOS] Started in 16-bit real mode, Loading... ", 0
+MSG_PROT: db "[noOS] 32-bit protected mode loaded.", 0
 ; BootSector
 times 510-($-$$) db 0
 dw 0xaa55
