@@ -12,14 +12,17 @@ help:
 		call printf
 		jmp powerush		
 
+goup:
+	mov si,up
+	call printf
+
 endlessread:
+	cmp bx,4
+	je endread
 	mov ah, 00h
 	int 16h
 	mov ah, 0x0e
 	int 0x10
-
-	cmp bx,4
-	je endread
 	mov [cmd + bx], al
 	inc bx
 	jmp endlessread
@@ -30,12 +33,19 @@ endread:
 	je help
 	cmp dword [cmd],'exit'
 	je exit
-	cmp dword [cmd],'test'
-	je test
+	cmp dword [cmd],'dead'
+	je death
+	cmp dword [cmd],'goup'
+	je goup
 	jmp powerush
 
-
-helpout: db 10,13,"l - LS",10,13,"c - exit (sorta)",10,13
+death:
+	mov si,hell
+	call printf
+	jmp powerush
+helpout: db 10,13,"l - LS",10,13,".exit - exit (sorta)",10,13,".dead - Unicode 0 through 25 (more coming soon)",10,13
 empty_helpout: db 0
 lsout: db 10,13,"Empty",10,13
 empty: db 0
+hell: db 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,0
+up: db 224,72,224,72,224,72,224,72
