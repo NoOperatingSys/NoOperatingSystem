@@ -1,6 +1,4 @@
 [org 0x7c00]
-;SECTION .bss
-;cmd: resb 32
 
 SECTION .text
 mov si, STR
