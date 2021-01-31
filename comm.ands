@@ -20,8 +20,8 @@ time:
 	int 1Ah
 	mov si,cx
 	call printf
-	mov si,dx
-	call printf
+	jmp powerush
+
 endlessread:
 	cmp bx,4
 	je endread
@@ -41,22 +41,33 @@ endread:
 	je help
 	cmp dword [cmd],'exit'
 	je exit
-	cmp dword [cmd],'dead'
-	je death
 	cmp dword [cmd],'goup'
 	je goup
 	cmp dword [cmd], 'time'
 	je time	
+	cmp dword [cmd], 'bcur'
+	je boxcur
+	cmp dword [cmd], 'lcur'
+	je linecur
 	jmp powerush
 
-death:
-	mov si,hell
-	call printf
+boxcur:
+	mov ch,0
+	mov cl, 7
+	mov ah, 1
+	int 10h
 	jmp powerush
-helpout: db 10,13,"l - LS",10,13,".exit - reboot",10,13,".dead - Unicode 0 through 25 (more coming soon)",10,13,".time - get system time?",10,13
+
+linecur:
+	mov ch,6
+	mov cl,7
+	mov ah,1
+	int 10h
+	jmp powerush
+
+helpout: db 10,13,"l - LS",10,13,".exit - reboot",10,13,".time - get system time? [help needed]",10,13,"misc: bcur,lcur,goup",10,13
 empty_helpout: db 0
-lsout: db 10,13,"Empty",10,13
+lsout: db 10,13,"This shouldn't exit in the first place",10,13,1,2,4,8,16,32,64,0
 empty: db 0
-hell: db 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,0
-up: db 224,72,224,72,224,72,224,72
+up: db 224,72,224,72,224,72,224,72,0
 rbtmsg: db 10,13,"Rebooting...",10,13,0
