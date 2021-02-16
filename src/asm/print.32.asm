@@ -6,7 +6,7 @@ WOB equ 0x0f ; wee woo
 print_str_pm:
     pusha
     mov edx, VID_MEMORY
-
+; 呂
 print_str_pm_loop:
     mov al, [ebx]
     mov ah, WOB
