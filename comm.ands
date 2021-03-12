@@ -1,16 +1,73 @@
 exit:
-		mov si, satan
-		call printf
-		jmp exit
+	mov si,rbtmsg
+	call printf
+	int 19h
 ls:
-		mov si,lsout
-		call printf
-		jmp powerush
+	mov si,lsout
+	call printf
+	jmp powerush
 
 help:
-		mov si,helpout
-		call printf
-		jmp powerush		
+	mov si,helpout
+	call printf
+	jmp powerush		
 
-helpout: db 10,13,"l - LS",10,13,"c - exit (sorta)",10,13
-lsout: db 10,13,"Empty",10,13
+goup:
+	mov si,up
+	call printf
+
+time:
+	int 1Ah
+	mov si,cx
+	call printf
+	jmp powerush
+
+endlessread:
+	cmp bx,4
+	je endread
+	mov ah, 00h
+	int 16h
+	mov ah, 0x0e
+	int 0x10
+	cmp al, '/'
+	je endread
+	mov [cmd + bx], al
+	inc bx
+	jmp endlessread
+
+endread:
+	xor bx,bx
+	cmp dword [cmd],'help'
+	je help
+	cmp dword [cmd],'exit'
+	je exit
+	cmp dword [cmd],'goup'
+	je goup
+	cmp dword [cmd], 'time'
+	je time	
+	cmp dword [cmd], 'bcur'
+	je boxcur
+	cmp dword [cmd], 'lcur'
+	je linecur
+	jmp powerush
+
+boxcur:
+	mov ch,0
+	mov cl, 7
+	mov ah, 1
+	int 10h
+	jmp powerush
+
+linecur:
+	mov ch,6
+	mov cl,7
+	mov ah,1
+	int 10h
+	jmp powerush
+
+helpout: db 10,13,"l - LS",10,13,".exit - reboot",10,13,".time - get system time? [help needed]",10,13,"misc: bcur,lcur,goup",10,13
+empty_helpout: db 0
+lsout: db 10,13,"This shouldn't exit in the first place",10,13,1,2,4,8,16,32,64,0
+empty: db 0
+up: db 224,72,224,72,224,72,224,72,0
+rbtmsg: db 10,13,"Rebooting...",10,13,0

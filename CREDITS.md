@@ -10,7 +10,7 @@
 
 579731384868798464 on discord wants 0 credit here it goes
 
-98133204636028928 more credit for him on discord he made the logo for us <3
+98133204636028928 more credit for her on discord she made the logo for us <3
 
 336465356304678913 on discord for being an early user
 

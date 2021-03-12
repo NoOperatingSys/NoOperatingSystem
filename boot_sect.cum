@@ -1,5 +1,6 @@
 [org 0x7c00]
 
+SECTION .text
 mov si, STR
 call printf
 mov ah, 0x0e
@@ -19,26 +20,16 @@ powerush:
 	je ls
 	cmp al, 'h'
 	je help
-	cmp al, 's'
+	cmp al, '.'
 	je endlessread
 	jmp powerush
 
-endlessread:
-	mov ah, 00h
-	int 16h
-	mov ah, 0x0e
-	int 0x10
-	cmp ah, '.'
-	je powerush
-	jmp endlessread
 
 newline: db 10, 13
 prompt: db 10, 13, '[PowerShell]> ',0
-;prompt: db 10, 13, '[Power shell but not the crappy one] >> ', 0 ; 10, 0
-cmd: dq ''
+cmd: db 0xff,0xff,0xff,0xff ;breh moment
+xor bx, bx
 
-satan: db 13,07,'satan is here be scared',0
-;%define u(x) __?utf16?__(x) ;unicode = u()
 %include "./printf.pog"
 %include "./comm.ands"
 STR: db 'Welcome to noOS 1.1.0-playground', 0
