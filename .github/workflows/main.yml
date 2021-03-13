@@ -29,5 +29,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           sudo snap install zig --classic --beta
-          sudo snap install make --classic --beta
           sudo make
