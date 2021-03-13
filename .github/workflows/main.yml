@@ -29,4 +29,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           sudo snap install zig --classic --beta
+          sudo add-apt-repository ppa:brandonsnider/cdrtools
+          sudo apt-get update
+          sudo apt-get install cdda2wav cdrecord mkisofs
           sudo make
