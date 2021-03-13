@@ -29,4 +29,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           sudo snap install zig --classic --beta
-          zig build src/
+          ls && ls src
+          zig build src/build.zig
