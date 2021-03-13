@@ -1,5 +1,7 @@
 all:
 	echo "Not Complete Yet"
+	echo "Make sure to run `make deps` before this. Press enter if you have done so already."
+	read junk
 	cd src && ../zig/zig build
 
 	ifeq ($(shell echo "check_quotes"),"check_quotes")
