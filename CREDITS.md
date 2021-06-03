@@ -14,4 +14,6 @@
 
 336465356304678913 on discord for being an early user
 
+373833473091436546 on discord wants -0.1% credit
+
 all contributors <3
