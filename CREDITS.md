@@ -16,4 +16,8 @@ tricked#3777 (336465356304678913) on discord for being an early user
 
 AAGaming#9395 (373833473091436546) on discord wants -0.1% credit
 
+Kreato#5771 (647480386577760256) on discord wants 420% credit (kreto)
+
+rem#5340 (257109471589957632) on discord wants solid 0% credit (fox)
+
 all contributors <3
