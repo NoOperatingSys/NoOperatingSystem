@@ -6,7 +6,7 @@
 You don't.
 
 # Building
-just run `sh ./build.sh`
+just run `make`
 
 # Running
 Just go see the wiki too much text here.
