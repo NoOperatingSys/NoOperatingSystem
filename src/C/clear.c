@@ -4,7 +4,7 @@
 // This clears the video memory
 void clear() {
 	j = 0;
-	while(j < 80 * 25 * 2) {
+	while(j < rowsize * colsize * 2) {
 		/* blank character */
 		vidptr[j] = ' ';
 		/* attribute-byte - light grey on black screen */

@@ -17,3 +17,19 @@ void print(char *string, char colour) {
     }
     return;
 }
+
+void printrow(char *string, char colour, int row) {
+    int rowstart = row * colsize * 2; // times two because 2 bytes
+    i = rowstart;
+    j = 0;
+
+    while(string[j] != '\0') {
+        vidptr[i] = string[j];
+        vidptr[i+1] = colour;
+
+        j++;
+        i = i + 2;
+    }
+    
+    return;
+}
