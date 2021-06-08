@@ -13,8 +13,8 @@ unsigned int col;
 unsigned int rowsize = 25;
 unsigned int colsize = 80;
 
-#include "clear.c"
-#include "print.c"
+#include "./lib/stdio/clear.c"
+#include "./lib/stdio/print.c"
 
 
 void kmain(void)
