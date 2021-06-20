@@ -1,0 +1,1 @@
+sudo docker build buildenv -t noos-buildenv
