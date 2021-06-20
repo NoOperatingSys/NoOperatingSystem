@@ -1,1 +1,0 @@
-%~dp0mkisofs -o %~dp0..\build\boot.iso  %~dp0..\src\iso 
