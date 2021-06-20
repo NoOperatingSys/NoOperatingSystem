@@ -1,14 +1,22 @@
-![](https://raw.githubusercontent.com/NOperatingSystem/Assets/master/Pictures/logo.png)
-![CI](https://github.com/MoltenCoreDev/noOS/workflows/CI/badge.svg)
+! TODO => REWRITE THIS WHOLE FILE 
 
 
-# Installation
-You don't.
+# NoOS
+Mainly a joke operating system, but now I'm just using it to learn OSDev.
 
-# Building
-just run `sh ./build.sh`
+Only runs on x86-64 arch because there are no other arches.
 
-# Running
-Just go see the wiki too much text here.
+multiboot2 compatible [x]
 
-*Made by the N Operating System team*
+
+## Development
+See [DEVELOPMENT.md](DEVELOPMENT.md)
+
+## Running
+See [RUNNING.md](RUNNING.md)
+
+## Installing
+Installing is not currently officially supported, do it yourself at your own risk.
+
+## Issues
+See [SECURITY.md](SECURITY.md)
