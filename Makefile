@@ -1,5 +1,9 @@
 all:
-#	chmod a+x ./nasm_linux_x64
-	./nasm_linux_x64 -f elf32 src/kernel.asm -o  build/kasm.o
-	gcc -m32 -c src/C/kernel.c -o build/kc.o
-	ld -m elf_i386 -T src/C/link.ld -o build/kernel build/kasm.o build/kc.o
+	chmod a+x ./nasm_linux_x64
+	mkdir build
+	rm build/* 2>/dev/null
+	./nasm_linux_x64 -f bin boot.asm -o ./build/boot.bin
+qemu:
+	echo "Press Ctrl A+X to exit on Linux or Ctrl+C on Windows.\n[Press Return to Continue]"
+	read continue
+	qemu-system-x86_64 -nographic ./build/boot.bin
