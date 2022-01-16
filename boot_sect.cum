@@ -16,8 +16,6 @@ powerush:
 	int 0x10
 	cmp al, 'c'
 	je exit
-	cmp al, 'l'
-	je ls
 	cmp al, 'h'
 	je help
 	cmp al, '.'
@@ -27,7 +25,7 @@ powerush:
 
 newline: db 10, 13
 prompt: db 10, 13, '[PowerShell]> ',0
-cmd: db 0xff,0xff,0xff,0xff ;breh moment
+cmd: db 0xff,0xff,0xff,0xff ; empty buffer for the command
 xor bx, bx
 
 %include "./printf.pog"
