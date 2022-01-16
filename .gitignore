@@ -1,3 +1,2 @@
-build/kernel
-build/kasm.o
-build/kc.o
+build/boot.bin
+build/boot_sect.bin
