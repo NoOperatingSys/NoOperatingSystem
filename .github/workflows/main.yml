@@ -12,12 +12,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Update GLIBC
-        run: sudo apt update && sudo apt install -y --quiet libc6
+        run: |
+          wget 'http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6_2.33-0ubuntu5_amd64.deb' -O glibc.deb || curl -sL 'http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6_2.33-0ubuntu5_amd64.deb' --output glibc.deb
+          sudo apt-get install ./glibc.deb -y --quiet
       - name: Build
         run: make
