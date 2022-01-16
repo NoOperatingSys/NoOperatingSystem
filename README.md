@@ -9,6 +9,8 @@ You don't.
 just run `make`
 
 # Running
-Just go see the wiki too much text here.
+`make qemu` to just see it in QEMU (needs qemu ofc)
+
+More Details: Just go see the wiki too much text here.
 
 *Made by the N Operating System team*
