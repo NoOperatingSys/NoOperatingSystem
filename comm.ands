@@ -1,9 +1,16 @@
 exit:
 	mov si,rbtmsg
 	call printf
-	int 19h
-ls:
-	mov si,lsout
+    mov ax, 0x1000
+    mov ax, ss
+    mov sp, 0xf000
+    mov ax, 0x5307
+    mov bx, 0x0001
+    mov cx, 0x0003
+    int 15h
+
+hello:
+	mov si,helloworld
 	call printf
 	jmp powerush
 
@@ -43,12 +50,14 @@ endread:
 	je exit
 	cmp dword [cmd],'goup'
 	je goup
-	cmp dword [cmd], 'time'
+	cmp dword [cmd],'time'
 	je time	
 	cmp dword [cmd], 'bcur'
 	je boxcur
 	cmp dword [cmd], 'lcur'
 	je linecur
+	cmp dword [cmd], 'helo'
+	je hello
 	jmp powerush
 
 boxcur:
@@ -65,9 +74,7 @@ linecur:
 	int 10h
 	jmp powerush
 
-helpout: db 10,13,"l - LS",10,13,".exit - reboot",10,13,".time - get system time? [help needed]",10,13,"misc: bcur,lcur,goup",10,13
-empty_helpout: db 0
-lsout: db 10,13,"This shouldn't exit in the first place",10,13,1,2,4,8,16,32,64,0
-empty: db 0
+helloworld: db 10,13,"Hello, world",10,13,0
+helpout: db 10,13,"Prefix all commands with .",10,13,"helo, exit, time, bcur, lcur, goup",10,13 
 up: db 224,72,224,72,224,72,224,72,0
 rbtmsg: db 10,13,"Rebooting...",10,13,0
