@@ -1,16 +1,17 @@
-![](https://raw.githubusercontent.com/NOperatingSystem/Assets/master/Pictures/logo.png)
-![CI](https://github.com/MoltenCoreDev/noOS/workflows/CI/badge.svg)
+# NoOS
+how to learn osdev part three hundred twelve
+
+multiboot2 compatible [x]
 
 
-# Installation
-You don't.
+## Development
+See [DEVELOPMENT.md](CONTRIBUTING.md)
 
-# Building
-just run `make`
+## Running
+See [RUNNING.md](RUNNING.md)
 
-# Running
-`make qemu` to just see it in QEMU (needs qemu ofc)
+## Installing
+it literally doesn't support files yet this is the worst idea you could have.
 
-More Details: Just go see the wiki too much text here.
-
-*Made by the N Operating System team*
+## Issues
+See [SECURITY.md](SECURITY.md)
