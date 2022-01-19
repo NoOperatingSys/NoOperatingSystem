@@ -49,4 +49,4 @@ endread:
 	jmp powerush
 
 helloworld: db 10,13,"Hello, world",10,13,0
-helpout: db 10,13,"Command Prefix is .",10,13,"helo, exit, time, bcur, lcur, goup",10,13,0
+helpout: db 10,13,"Command Prefix is .",10,13,"helo, exit, time (broken)",10,13,0
