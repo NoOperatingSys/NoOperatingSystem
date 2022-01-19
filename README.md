@@ -2,21 +2,19 @@
 
 
 # NoOS
-Mainly a joke operating system, but now I'm just using it to learn OSDev.
-
-Only runs on x86-64 arch because there are no other arches.
+how to learn osdev part three hundred twelve
 
 multiboot2 compatible [x]
 
 
 ## Development
-See [DEVELOPMENT.md](DEVELOPMENT.md)
+See [DEVELOPMENT.md](CONTRIBUTING.md)
 
 ## Running
 See [RUNNING.md](RUNNING.md)
 
 ## Installing
-Installing is not currently officially supported, do it yourself at your own risk.
+it literally doesn't support files yet this is the worst idea you could have.
 
 ## Issues
 See [SECURITY.md](SECURITY.md)
