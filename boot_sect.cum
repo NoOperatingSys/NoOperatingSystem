@@ -14,7 +14,7 @@ powerush:
 	int 16h
 	mov ah, 0x0e
 	int 0x10
-	cmp al, 'c'
+	cmp al, 'q'
 	je exit
 	cmp al, 'h'
 	je help
