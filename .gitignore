@@ -1,2 +1,7 @@
+
 dist/
 build/
+
+build/boot.bin
+build/boot_sect.bin
+

@@ -1,0 +1,36 @@
+[org 0x7c00]
+
+SECTION .text
+mov si, STR
+call printf
+mov ah, 0x0e
+mov al, 10
+int 0x10
+
+powerush:
+	mov si, prompt
+	call printf
+	mov ah, 00h
+	int 16h
+	mov ah, 0x0e
+	int 0x10
+	cmp al, 'q'
+	je exit
+	cmp al, 'h'
+	je help
+	cmp al, '.'
+	je endlessread
+	jmp powerush
+
+
+newline: db 10, 13
+prompt: db 10, 13, '[PowerShell]> ',0
+cmd: db 0xff,0xff,0xff,0xff ; empty buffer for the command
+xor bx, bx
+
+%include "./printf.pog"
+%include "./comm.ands"
+STR: db 'Welcome to noOS 1.1.0-playground', 0
+
+times 510-($-$$) db 0
+dw 0xaa55

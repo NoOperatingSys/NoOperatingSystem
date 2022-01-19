@@ -1,6 +1,3 @@
-! TODO => REWRITE THIS WHOLE FILE 
-
-
 # NoOS
 how to learn osdev part three hundred twelve
 
