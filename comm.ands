@@ -1,6 +1,4 @@
 exit:
-	mov si,rbtmsg
-	call printf
     mov ax, 0x1000
     mov ax, ss
     mov sp, 0xf000
@@ -18,10 +16,6 @@ help:
 	mov si,helpout
 	call printf
 	jmp powerush		
-
-goup:
-	mov si,up
-	call printf
 
 time:
 	int 1Ah
@@ -48,33 +42,11 @@ endread:
 	je help
 	cmp dword [cmd],'exit'
 	je exit
-	cmp dword [cmd],'goup'
-	je goup
 	cmp dword [cmd],'time'
 	je time	
-	cmp dword [cmd], 'bcur'
-	je boxcur
-	cmp dword [cmd], 'lcur'
-	je linecur
 	cmp dword [cmd], 'helo'
 	je hello
 	jmp powerush
 
-boxcur:
-	mov ch,0
-	mov cl, 7
-	mov ah, 1
-	int 10h
-	jmp powerush
-
-linecur:
-	mov ch,6
-	mov cl,7
-	mov ah,1
-	int 10h
-	jmp powerush
-
 helloworld: db 10,13,"Hello, world",10,13,0
-helpout: db 10,13,"Prefix all commands with .",10,13,"helo, exit, time, bcur, lcur, goup",10,13 
-up: db 224,72,224,72,224,72,224,72,0
-rbtmsg: db 10,13,"Rebooting...",10,13,0
+helpout: db 10,13,"Command Prefix is .",10,13,"helo, exit, time, bcur, lcur, goup",10,13,0
