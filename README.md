@@ -15,6 +15,7 @@ More Details: Just go see the wiki too much text here.
 
 # Tested On
 | Device | Commit/Version |
+| ------ | -------------- |
 | Dell Inspiron 1150 | 537d15 |
 | Dell Inspiron 1750 | Old Version |
 
