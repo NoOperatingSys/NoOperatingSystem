@@ -7,7 +7,7 @@ mov bx, BOOT_TEXT
 call print
 
 
-%include "src/print.pog"
+%include "src/io.asm"
 
 
 BOOT_TEXT:

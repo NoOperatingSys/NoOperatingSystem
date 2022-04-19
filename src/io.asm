@@ -16,3 +16,5 @@ print:
 finish_print:
         popa      ; Clear the stack
         ret
+
+; TODO: get input
