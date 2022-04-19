@@ -1,4 +1,4 @@
-all: clean assemble run
+all: clean assemble
 
 assemble:
 	mkdir ./build
@@ -6,6 +6,9 @@ assemble:
 
 run:
 	qemu-system-x86_64 ./build/boot.bin
+
+trun:
+	qemu-system-x86_64 -nographic ./build/boot.bin
 
 clean:
 	rm -rf ./build
