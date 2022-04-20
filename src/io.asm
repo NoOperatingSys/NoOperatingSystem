@@ -1,5 +1,11 @@
+; io.asm - contains input/output functions for 16 bit bios mode
+
+; receiving data from 'bx'
 print:
-        mov al, [bx]    ; we use the BX register as storage for our string
+        pusha
+
+print_loop:
+        mov al, [bx]    ; we use the 'bx' register as storage for our string
                         ; move the memory pointer of 'bx' to al
                         ; al stores our character we wish to print
 
@@ -11,10 +17,8 @@ print:
 
         add bx, 1       ; increment the current character pointer by 1 char
 
-        jmp print       ; recurse
+        jmp print_loop  ; recurse
 
 finish_print:
-        popa      ; Clear the stack
+        popa
         ret
-
-; TODO: get input

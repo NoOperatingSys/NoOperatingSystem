@@ -1,20 +1,26 @@
 [org 0x07c00]
-[bits 16]
-
-; Please refer to https://www.nasm.us/doc/
 
 mov bx, BOOT_TEXT
 call print
+
+mov bp, 0x8000
+mov sp, bp
+
 mov bx, 0x9000
-mov dh, 2		; read 2 sectors
-call disk_load
+mov dh, 1
+call load_disk
+
+mov dx, SECTOR2_DATA
+times 20 call print
+
+jmp $
 
 %include "src/io.asm"
-%include "src/disk_load.asm"
+%include "src/load_disk.asm"
 
-BOOT_TEXT:
-        db "Welcome to NoOS v2.0!", 0
+BOOT_TEXT: db "Welcome to NoOS v2.0!", 0x0a, 0x0d, 0
 
 times 510 - ($ - $$) db 0
-db 0x55
-db 0xaa
+dw 0xaa55
+
+SECTOR2_DATA: db "Welcome to hell!", 0x0a, 0x0d, 0
