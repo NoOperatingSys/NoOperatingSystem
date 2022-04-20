@@ -2,7 +2,7 @@ all: clean assemble
 github: installnasm clean assemble
 
 installnasm:
-	(sudo -v && sudo apt-get install -y --quiet nasm) || apt-get install nasm || (echo apt no work;exit 1)
+	sudo apt-get install -y --quiet nasm
 
 assemble:
 	mkdir ./build
