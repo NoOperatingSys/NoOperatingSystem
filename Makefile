@@ -1,4 +1,4 @@
-all: clean assemble run
+all: clean assemble
 github: installnasm clean assemble
 
 installnasm:
