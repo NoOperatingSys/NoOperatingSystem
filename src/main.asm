@@ -1,4 +1,5 @@
 [org 0x07c00]
+[bits 16]
 
 mov bx, BOOT_TEXT
 call print
@@ -11,7 +12,7 @@ mov dh, 1
 call load_disk
 
 mov dx, SECTOR2_DATA
-times 20 call print
+call print
 
 jmp $
 
