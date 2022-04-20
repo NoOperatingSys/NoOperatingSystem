@@ -22,3 +22,28 @@ print_loop:
 finish_print:
         popa
         ret
+
+VIDEO_ADDRESS equ 0xb8000
+
+; 'ebx' is the string input
+print_pm:
+        pusha
+        mov edx, VIDEO_ADDRESS ; Save the video address in 'edx'
+
+ppm_loop:
+        mov al, [ebx]
+        mov ah, 0x0f
+
+        cmp al, 0
+        je ppm_done
+
+        mov [edx], ax
+        
+        add ebx, 1  ; increment the string by one character
+        add edx, 2  ; increment the pointer by one character-style pair
+
+        jmp ppm_loop
+
+ppm_done:
+        popa
+        ret
