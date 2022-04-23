@@ -6,7 +6,7 @@ mov sp, bp
 
 call switch_to_pm
 
-;jmp $
+jmp $
 
 [bits 32]
 BEGIN_PM:
@@ -20,7 +20,6 @@ BEGIN_PM:
         mov ebx, PM_TEXT
         times 20 call print_pm
 		jmp test_func
-;       jmp $
 
 %include "src/io.asm"
 %include "src/gdt.asm"
