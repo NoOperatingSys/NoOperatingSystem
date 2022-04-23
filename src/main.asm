@@ -6,7 +6,7 @@ mov sp, bp
 
 call switch_to_pm
 
-jmp $
+;jmp $
 
 [bits 32]
 BEGIN_PM:
@@ -18,17 +18,17 @@ BEGIN_PM:
         mov [edx], ax
 
         mov ebx, PM_TEXT
-        call print_pm
-
-        jmp $
+        times 20 call print_pm
+		jmp test_func
+;       jmp $
 
 %include "src/io.asm"
 %include "src/gdt.asm"
 %include "src/switch.asm"
+%include "src/testing.asm"
 
 BOOT_TEXT: db "Welcome to NoOS v2.0!", 0x0a, 0x0d, 0
 PM_TEXT: db "Loaded the 32bit PM!", 0x0a, 0x0d, 0
-
 
 
 times 510 - ($ - $$) db 0
