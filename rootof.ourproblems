@@ -1,0 +1,18 @@
+[org 0x7c00]
+
+
+
+mov ah, 0x0e
+mov al, 't'
+int 10h
+
+loo:
+    mov ah, 00h
+    int 16h
+    mov ah, 0x0e
+    int 10h
+    jmp loo
+
+
+times 510-($-$$) db 0
+dw 0xaa55
