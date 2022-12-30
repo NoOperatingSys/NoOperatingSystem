@@ -1,18 +1,27 @@
 [org 0x7c00]
 
+mov bx, string
+call print
 
+jmp $
 
-mov ah, 0x0e
-mov al, 't'
-int 10h
+; Will print any string provided in the BX register
+print:
+    mov al, [bx]
+    cmp al, 0
+    je print_finished
 
-loo:
-    mov ah, 00h
-    int 16h
     mov ah, 0x0e
-    int 10h
-    jmp loo
+    int 0x10
 
+    add bx, 1
+    jmp print
+
+print_finished:
+    ret
+
+
+string: db 'Hello from poland!', 0
 
 times 510-($-$$) db 0
 dw 0xaa55
