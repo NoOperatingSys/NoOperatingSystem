@@ -5,21 +5,7 @@ call print
 
 jmp $
 
-; Will print any string provided in the BX register
-print:
-    mov al, [bx]
-    cmp al, 0
-    je print_finished
-
-    mov ah, 0x0e
-    int 0x10
-
-    add bx, 1
-    jmp print
-
-print_finished:
-    ret
-
+%include 'lib/print.liberty'
 
 string: db 'Hello from poland!', 0
 
