@@ -1,0 +1,7 @@
+; Halts the system, waits for input. When input given stores it in al. Prints out the input value.
+read:
+    mov ah, 00h
+    int 16h
+    mov ah, 0x0e
+    int 10h
+    ret

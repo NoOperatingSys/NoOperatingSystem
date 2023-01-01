@@ -1,13 +1,29 @@
 [org 0x7c00]
 
-mov bx, string
+mov bx, welcome
 call print
+mov bx, tutorial
+call print
+
+main_loop:
+    call read
+    cmp al, '.' ; Press dot to terminate
+    je done
+    jmp main_loop
+
+done:
+    mov bx, goodbye
+    call print
+    jmp $
 
 jmp $
 
 %include 'lib/print.liberty'
+%include 'lib/read.liberty'
 
-string: db 'Hello from poland!', 0
+welcome: db 'Hello from poland!', 0x0a, 0x0d, 0
+tutorial: db 'you can enter any text you want, to quit press "."', 0x0a, 0x0d, 0
+goodbye: db 0x0a, 0x0d, 'Thanks for using NoOS, see you soon! You can now turn off your machine.', 0
 
 times 510-($-$$) db 0
 dw 0xaa55
