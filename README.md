@@ -18,6 +18,6 @@ More Details: Just go see the wiki too much text here.
 | ------ | -------------- | ----- |
 | Dell Inspiron 1150 | 537d15 | Yes |
 | Dell Inspiron 1750 | Old Version | Yes |
-| Dell Latitude D830 | 727001 | No |
+| Dell Latitude D830 | 727001 | Yes |
 
 *Made by the N Operating System team*
