@@ -1,5 +1,5 @@
 [org 0x7c00]
-
+mov sp, 0x7C00 ; stack grows downwards from 0x7C00
 mov bx, welcome
 call print
 mov bx, tutorial
@@ -8,12 +8,9 @@ call print
 call apm_init
 
 main_loop:
-    call read
-    cmp al, '.' ; Press dot to terminate
-    je done
-    cmp al, 13
-    je newline
-    jmp main_loop
+	mov bx, powerush_prompt
+	call print
+	call poweread
 
 done:
     mov bx, goodbye
@@ -31,12 +28,14 @@ jmp $
 %include 'lib/print.liberty'
 %include 'lib/read.liberty'
 %include 'lib/apm.wtf'
+%include 'lib/powerush.it'
 
 ; Newline: 13, 10
 nl: db 13, 10, 0
 welcome: db 'Hello from poland!', 13, 10, 0
 tutorial: db 'you can enter any text you want, to quit press "."', 13, 10, 0
 goodbye: db 13, 10, 'Thanks for using NoOS, see you soon!', 13, 10, 'You can now turn off your machine.', 0
+powerush_prompt: db '> ', 0
 
 times 510-($-$$) db 0
 dw 0xaa55
