@@ -4,7 +4,7 @@ mugman#5453 (601836455006044163) on discord wants 50% credit he is [@mugman174](
 jai#0001 (98133204636028928) on discord she made the logo for us <3
 <hr/>
 
-~~Onscreenproton#8178~~ DanKGooGLy (348918040248713217) on discord wants 0.01% credit here ya go
+Onscreenproton#8178 (348918040248713217) on discord wants 0.01% credit here ya go
 
 jai#0001 (98133204636028928) on discord wants 3.21333125% credit here ya go
 
@@ -20,4 +20,8 @@ Kreato#5771 (647480386577760256) on discord wants 420% credit (kreto)
 
 rem#5340 (257109471589957632) on discord wants solid 0% credit (fox)
 
-all contributors <3
+Dex#6686 (949581920432451624) on discord wants credit for noos living rent free in his head
+
+nørd#7418 (678541528821661696) on discord wants credit for yes
+
+i love all of you stay safe <3
