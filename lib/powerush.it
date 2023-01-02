@@ -4,7 +4,8 @@ powerexec:
    call print
    jmp main_loop   ; if the result is zero, get out
 
-; a lot of the code comes from a source, it will be linked soon
+; https://wiki.osdev.org/Real_mode_assembly_I
+
 poweread:
    mov cl, 0
    mov ah, 0
