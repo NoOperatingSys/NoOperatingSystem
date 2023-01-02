@@ -1,2 +1,56 @@
-init:
+; https://wiki.osdev.org/APM
+; https://stackoverflow.com/questions/21463908/x86-instructions-to-power-off-computer-in-real-mode
+apm_init:
+    ; check
+    mov ah, 53h
+    mov al, 00h
+    xor bx, bx
+    int 15h
+    jc apm_error
+    ; disconnect
+    mov ah, 53h
+    mov al, 04h
+    xor bx, bx
+    int 15h
+    jc apm_disconnect_error
+    ; initialize
+    mov ah, 53h
+    mov al, 01h
+    xor bx, bx
+    int 15h
+    jc apm_error
+    ; enable
+    mov ah, 53h
+    mov al, 08h
+    mov bx, 0001h
+    mov cx, 0001h
+    int 15h
+    jc apm_error
+    ret
     
+apm_disconnect_error:
+    cmp ah, 03h
+    jne apm_error
+    ret
+
+success:
+    mov bx, success_string
+    call print
+    ret
+
+apm_error:
+    mov bx, error_string
+    call print
+    ret
+
+shutoff:
+    mov ah, 53h
+    mov al, 07h
+    mov bx, 0001h
+    mov cx, 03h
+    int 15h
+    jc apm_error
+    ret
+
+error_string: db "NoOS failed to start APM.", 0
+success_string: db "Initialized APM successfully", 0

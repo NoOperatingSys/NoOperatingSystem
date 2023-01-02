@@ -5,6 +5,8 @@ call print
 mov bx, tutorial
 call print
 
+call apm_init
+
 main_loop:
     call read
     cmp al, '.' ; Press dot to terminate
@@ -14,15 +16,17 @@ main_loop:
 done:
     mov bx, goodbye
     call print
+    call shutoff
     jmp $
 
 jmp $
 
 %include 'lib/print.liberty'
 %include 'lib/read.liberty'
+%include 'lib/apm.wtf'
 
 welcome: db 'Hello from poland!', 0x0a, 0x0d, 0
-tutorial: db 'you can enter any text you want, to quit press "."', 0x0a, 0x0d, 0
+tutorial: db 'You can now enter any text you want, to quit press "."', 0x0a, 0x0d, 0
 goodbye: db 0x0a, 0x0d, 'Thanks for using NoOS, see you soon! You can now turn off your machine.', 0
 
 times 510-($-$$) db 0
