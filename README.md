@@ -14,9 +14,10 @@ just run `make`
 More Details: Just go see the wiki too much text here.
 
 # Tested On
-| Device | Commit/Version |
-| ------ | -------------- |
-| Dell Inspiron 1150 | 537d15 |
-| Dell Inspiron 1750 | Old Version |
+| Device | Commit/Version | Works |
+| ------ | -------------- | ----- |
+| Dell Inspiron 1150 | 537d15 | Yes |
+| Dell Inspiron 1750 | Old Version | Yes |
+| Dell Latitude D830 | 727001 | Yes |
 
 *Made by the N Operating System team*
