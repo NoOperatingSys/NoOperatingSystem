@@ -1,0 +1,29 @@
+powerexec:
+   ;lodsb ; load char from stack
+   mov bx, helloworld
+   call print
+   jmp main_loop   ; if the result is zero, get out
+
+; a lot of the code comes from a source, it will be linked soon
+poweread:
+   mov cl, 0
+   mov ah, 0
+   int 0x16   ; wait for keypress
+
+   cmp al, '.' ; dot to terminate
+   je done
+
+   cmp al, 0x0D  ; enter pressed?
+   je powerexec      ; yes, we're done
+
+   cmp cl, 0x3F  ; 63 chars inputted?
+   je powerexec ; done
+
+   mov ah, 0x0E
+   int 0x10      ; print out character
+
+   stosb  ; put character in buffer
+   inc cl
+   jmp poweread
+
+helloworld: db "Hello, World!", 13, 10, 0
