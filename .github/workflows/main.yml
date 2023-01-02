@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
+name: Check & Release NoOS builds
 
 on:
   push:
@@ -21,3 +19,9 @@ jobs:
 
       - name: Build
         run: make build
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: latest
+          files: boot.bin
